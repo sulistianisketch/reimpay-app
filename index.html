@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#243b53">
+  <title>ReimFlow | Sinergi Karya</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="auth-screen" class="auth-screen">
+    <section class="auth-card">
+      <a class="brand brand-auth" href="#" aria-label="ReimFlow">
+        <img src="logo.svg" alt="" width="42" height="42">
+        <span>Reim<span class="brand-accent">Flow</span><small>Expense, made clear.</small></span>
+      </a>
+      <div class="auth-heading">
+        <p class="eyebrow">PORTAL KARYAWAN</p>
+        <h1>Selamat datang kembali</h1>
+        <p>Masuk untuk mengelola pengajuan reimbursement Anda.</p>
+      </div>
+      <form id="login-form" class="form-stack">
+        <label>Email kerja
+          <input name="email" type="email" autocomplete="username" placeholder="nama@perusahaan.co.id" required>
+        </label>
+        <label>Password
+          <input name="password" type="password" autocomplete="current-password" placeholder="Masukkan password" required>
+        </label>
+        <button class="button button-primary button-wide" type="submit">Masuk ke ReimFlow <span aria-hidden="true">→</span></button>
+        <p id="login-error" class="form-error" role="alert"></p>
+      </form>
+      <p class="auth-footnote">Akses akun dikelola oleh administrator perusahaan.</p>
+    </section>
+    <div class="auth-aside">
+      <div class="auth-aside-content">
+        <span class="aside-pill"><span class="status-dot"></span> REIMBURSEMENT, SIMPLIFIED</span>
+        <h2>Pengeluaran kerja,<br>lebih <em>terkendali.</em></h2>
+        <p>Ajukan, lacak, dan kelola reimbursement dalam satu alur yang transparan.</p>
+        <div class="aside-stat"><strong>01</strong><span>Ajukan dengan bukti transaksi</span></div>
+        <div class="aside-stat"><strong>02</strong><span>Pantau status setiap saat</span></div>
+        <div class="aside-stat"><strong>03</strong><span>Terima pembayaran dengan jelas</span></div>
+      </div>
+      <span class="aside-orbit orbit-one"></span><span class="aside-orbit orbit-two"></span>
+      <p class="aside-caption">Sinergi Karya · Sistem Reimbursement</p>
+    </div>
+  </main>
+
+  <div id="app-screen" class="app-shell is-hidden">
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-brand">
+        <a class="brand" href="#" data-view="dashboard">
+          <img src="logo.svg" alt="" width="38" height="38">
+          <span>Reim<span class="brand-accent">Flow</span></span>
+        </a>
+        <button id="sidebar-close" class="icon-button mobile-only" aria-label="Tutup menu"></button>
+      </div>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav id="sidebar-nav" class="sidebar-nav" aria-label="Navigasi utama"></nav>
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <span class="help-icon" aria-hidden="true">?</span>
+          <div><strong>Butuh bantuan?</strong><small>Hubungi tim Finance</small></div>
+        </div>
+        <div class="sidebar-company">© 2026 ReimFlow <span>v1.0</span></div>
+      </div>
+    </aside>
+    <div id="sidebar-scrim" class="sidebar-scrim"></div>
+    <section class="main-shell">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button id="sidebar-toggle" class="icon-button menu-toggle" aria-label="Buka menu"></button>
+          <div class="breadcrumb"><span>ReimFlow</span><b>/</b><strong id="current-page-title">Dashboard</strong></div>
+        </div>
+        <div class="topbar-right">
+          <span class="topbar-date" id="today-label"></span>
+          <span class="topbar-divider"></span>
+          <div class="user-menu">
+            <div class="avatar" id="top-avatar">RF</div>
+            <div class="user-identity"><strong id="top-name">Pengguna</strong><span id="top-role">Employee</span></div>
+            <button id="logout-button" class="logout-button" title="Keluar" aria-label="Keluar"></button>
+          </div>
+        </div>
+      </header>
+      <main id="page-content" class="page-content" tabindex="-1"></main>
+    </section>
+  </div>
+  <div id="toast-region" class="toast-region" aria-live="polite"></div>
+  <dialog id="app-modal" class="app-modal"></dialog>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="auth.js"></script>
+  <script src="dashboard.js"></script>
+  <script src="reimbursement.js"></script>
+  <script src="admin.js"></script>
+  <script src="report.js"></script>
+</body>
+</html>
